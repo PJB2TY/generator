@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import org.reflections.Reflections;
 
 public class GenerateTestSourceFiles {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         if (args.length < 1 || !StringUtility.stringHasValue(args[0])) {
             throw new RuntimeException("This class requres one argument which is the location of the output directory");
         }
@@ -73,7 +73,7 @@ public class GenerateTestSourceFiles {
             cus.addAll(generator.generate());
         }
 
-        for (CompilationUnit cu: cus) {
+        for (CompilationUnit cu : cus) {
             writeCompilationUnit(outputDirectory, cu);
         }
     }

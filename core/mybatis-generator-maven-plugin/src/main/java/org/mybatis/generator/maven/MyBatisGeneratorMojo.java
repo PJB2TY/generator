@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -50,11 +50,10 @@ import org.mybatis.generator.internal.util.messages.Messages;
         requiresDependencyResolution = ResolutionScope.TEST)
 public class MyBatisGeneratorMojo extends AbstractMojo {
 
-    private ThreadLocal<ClassLoader> savedClassloader = new ThreadLocal<>();
+    private final ThreadLocal<ClassLoader> savedClassloader = new ThreadLocal<>();
 
     /**
      * Maven Project.
-     *
      */
     @Parameter(property = "project", required = true, readonly = true)
     private MavenProject project;
@@ -120,13 +119,13 @@ public class MyBatisGeneratorMojo extends AbstractMojo {
     private String jdbcPassword;
 
     /**
-     * Comma delimited list of table names to generate.
+     * Comma-delimited list of table names to generate.
      */
     @Parameter(property = "mybatis.generator.tableNames")
     private String tableNames;
 
     /**
-     * Comma delimited list of contexts to generate.
+     * Comma-delimited list of contexts to generate.
      */
     @Parameter(property = "mybatis.generator.contexts")
     private String contexts;

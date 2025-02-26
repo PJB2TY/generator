@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public class InsertMultipleMethodGenerator extends AbstractMethodGenerator {
         }
 
         method.addBodyLine("return " + methodName + "(this::insertMultiple, records, " //$NON-NLS-1$ //$NON-NLS-2$
-                + tableFieldName //$NON-NLS-1$
+                + tableFieldName // $NON-NLS-1$
                 + ", c ->"); //$NON-NLS-1$
 
         List<IntrospectedColumn> columns =

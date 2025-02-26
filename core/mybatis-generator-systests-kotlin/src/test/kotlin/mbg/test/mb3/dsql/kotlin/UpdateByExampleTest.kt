@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -149,14 +149,18 @@ class UpdateByExampleTest : AbstractTest() {
             assertEquals(2, rows)
 
             var returnedRows = mapper.count {
-                where { pkonly.id isEqualTo 5 }
-                and { pkonly.seqNum isEqualTo 3 }
+                where {
+                    pkonly.id isEqualTo 5
+                    and { pkonly.seqNum isEqualTo 3 }
+                }
             }
             assertEquals(1, returnedRows)
 
             returnedRows = mapper.count {
-                where { pkonly.id isEqualTo 7 }
-                and { pkonly.seqNum isEqualTo 3 }
+                where {
+                    pkonly.id isEqualTo 7
+                    and { pkonly.seqNum isEqualTo 3 }
+                }
             }
             assertEquals(1, returnedRows)
         }
@@ -184,8 +188,10 @@ class UpdateByExampleTest : AbstractTest() {
             assertEquals(1, rows)
 
             val returnedRows = mapper.count {
-                where { pkonly.id isEqualTo 22 }
-                and { pkonly.seqNum isEqualTo 3 }
+                where {
+                    pkonly.id isEqualTo 22
+                    and { pkonly.seqNum isEqualTo 3 }
+                }
             }
             assertEquals(1, returnedRows)
         }
@@ -219,10 +225,12 @@ class UpdateByExampleTest : AbstractTest() {
             assertEquals(1, rows)
 
             val returnedRows = mapper.count {
-                where { pkfieldstable.firstname isEqualTo "Fred" }
-                and { pkfieldstable.lastname isEqualTo "Jones" }
-                and { pkfieldstable.id1 isEqualTo 3 }
-                and { pkfieldstable.id2 isEqualTo 4 }
+                where {
+                    pkfieldstable.firstname isEqualTo "Fred"
+                    and { pkfieldstable.lastname isEqualTo "Jones" }
+                    and { pkfieldstable.id1 isEqualTo 3 }
+                    and { pkfieldstable.id2 isEqualTo 4 }
+                }
             }
             assertEquals(1, returnedRows)
         }
@@ -251,15 +259,19 @@ class UpdateByExampleTest : AbstractTest() {
 
             val rows = mapper.update {
                 updateAllColumns(updateRecord)
-                where { pkfieldstable.id1 isEqualTo 3 }
-                and { pkfieldstable.id2 isEqualTo 4 }
+                where {
+                    pkfieldstable.id1 isEqualTo 3
+                    and { pkfieldstable.id2 isEqualTo 4 }
+                }
             }
             assertEquals(1, rows)
 
             val returnedRows = mapper.count {
-                where { pkfieldstable.firstname isEqualTo "Fred" }
-                and { pkfieldstable.id1 isEqualTo 3 }
-                and { pkfieldstable.id2 isEqualTo 4 }
+                where {
+                    pkfieldstable.firstname isEqualTo "Fred"
+                    and { pkfieldstable.id1 isEqualTo 3 }
+                    and { pkfieldstable.id2 isEqualTo 4 }
+                }
             }
             assertEquals(1, returnedRows)
         }

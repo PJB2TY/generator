@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -39,7 +39,6 @@ import org.mybatis.generator.api.dom.kotlin.KotlinType;
  * attempt to do any versioning of classes.
  *
  * @author Jeff Butler
- *
  */
 public class SerializablePlugin extends PluginAdapter {
 

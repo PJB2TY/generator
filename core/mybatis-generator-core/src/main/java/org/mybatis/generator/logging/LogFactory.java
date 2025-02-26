@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ import org.mybatis.generator.logging.slf4j.Slf4jLoggingLogFactory;
  * Factory for creating loggers.
  *
  * @author Jeff Butler
- *
  */
 public class LogFactory {
     private static AbstractLogFactory theFactory;
@@ -41,7 +40,8 @@ public class LogFactory {
         tryImplementation(new NoLoggingLogFactory());
     }
 
-    private LogFactory() {}
+    private LogFactory() {
+    }
 
     public static Log getLog(Class<?> clazz) {
         try {

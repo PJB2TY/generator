@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2006-2022 the original author or authors.
+       Copyright 2006-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -17,13 +17,12 @@
 
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.mybatis.generator</groupId>
     <artifactId>org.mybatis.generator.eclipse.parent</artifactId>
-    <version>1.4.2-SNAPSHOT</version>
+    <version>1.4.3-SNAPSHOT</version>
   </parent>
   <artifactId>org.mybatis.generator.eclipse.site</artifactId>
   <packaging>eclipse-repository</packaging>
@@ -47,7 +46,7 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
     <profile>
       <id>release-composite</id>
@@ -65,10 +64,10 @@
             <executions>
               <execution>
                 <id>download-composite-metadata</id>
-                <phase>prepare-package</phase>
                 <goals>
-                 <goal>run</goal>
+                  <goal>run</goal>
                 </goals>
+                <phase>prepare-package</phase>
                 <configuration>
                   <target>
                     <ant antfile="downloadMetadata.ant" target="download"/>
@@ -78,15 +77,15 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-eclipserun-plugin</artifactId>
-            <version>${tycho-extras-version}</version>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-eclipse-plugin</artifactId>
+            <version>${tycho-version}</version>
             <configuration>
               <repositories>
                 <repository>
                   <id>Eclipse Latest</id>
                   <layout>p2</layout>
-                  <url>http://download.eclipse.org/releases/latest</url>
+                  <url>https://download.eclipse.org/releases/latest/</url>
                 </repository>
               </repositories>
               <dependencies>
@@ -131,10 +130,10 @@
             <executions>
               <execution>
                 <id>update composite repo</id>
-                <phase>package</phase>
                 <goals>
                   <goal>eclipse-run</goal>
                 </goals>
+                <phase>package</phase>
               </execution>
             </executions>
           </plugin>

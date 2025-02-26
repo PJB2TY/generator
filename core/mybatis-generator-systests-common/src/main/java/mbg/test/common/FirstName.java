@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package mbg.test.common;
 
 /**
  * @author Jeff Butler
- *
  */
 public class FirstName {
 
@@ -44,7 +43,7 @@ public class FirstName {
             return false;
         }
 
-        return value.equals(((FirstName)arg0).getValue());
+        return value.equals(((FirstName) arg0).getValue());
     }
 
     @Override

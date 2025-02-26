@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2006-2022 the original author or authors.
+       Copyright 2006-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 <body>
 <h1>MyBatis Dynamic SQL Usage Notes</h1>
 <p>This page is a short introduction to using the classes generated for the MyBatis3DynamicSQL runtime. These classes
-are dependent on the <a href="http://www.mybatis.org/mybatis-dynamic-sql/docs/introduction.html">MyBatis Dynamic SQL</a>
+are dependent on the <a href="https://www.mybatis.org/mybatis-dynamic-sql/docs/introduction.html">MyBatis Dynamic SQL</a>
 library. Please refer to that site for full information
 about how the library works.</p>
 
@@ -85,7 +85,7 @@ code you write.  With this static import you can refer to the fields
 in either a direct or qualified manner - "id" or "tableCode.id".</p>
 
 <h2>Usage of the Mapper Classes</h2>
-<p>The following methods work the same as the other runtimes and we won't cover them here:</p>
+<p>The following methods work the same as the other runtimes, and we won't cover them here:</p>
 <ul>
   <li>deleteByPrimaryKey</li>
   <li>insert - insert a single row (will insert nulls)</li>
@@ -168,7 +168,7 @@ public class SomeService {
         List&lt;TableCode&gt; records = mapper.select(c -&gt;
                 c.where(id, isLessThan(10), and(description, isEqualTo("foo")))
                 .or(description, isLike("b%"))
-                .orderBy(id.descending()));        
+                .orderBy(id.descending()));
         ...
     }
 }

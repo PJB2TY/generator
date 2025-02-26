@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class DocumentRenderer {
                 renderDocType(document),
                 renderRootElement(document))
                 .flatMap(Function.identity())
-                .collect(Collectors.joining(System.getProperty("line.separator"))); //$NON-NLS-1$
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
     private Stream<String> renderXmlHeader() {

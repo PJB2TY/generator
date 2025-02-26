@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2006-2022 the original author or authors.
+       Copyright 2006-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -158,8 +158,8 @@ specified with the <a href="property.html">&lt;property&gt;</a> child element:</
       the white space from character fields returned from the database.
       This can be useful if your database stores data in CHAR fields rather than
       VARCHAR fields.  When true, MyBatis Generator will insert code to trim character fields.
-      Can be overridden with the <code>trimStrings</code> property in a 
-      <a href="table.html">&lt;table&gt;</a> or 
+      Can be overridden with the <code>trimStrings</code> property in a
+      <a href="table.html">&lt;table&gt;</a> or
       <a href="columnOverride.html">&lt;columnOverride&gt;</a> element.
       <p><i>The default value is false.</i></p>
       <p><i>This property is ignored if the target runtime is "MyBatis3Kotlin"</i></p></td>
@@ -168,7 +168,7 @@ specified with the <a href="property.html">&lt;property&gt;</a> child element:</
 
 <h2>Example</h2>
 <p>This element specifies that we always want to place generated classes
-in the "'test.model" package and that we want to use subpackages based on the
+in the "test.model" package and that we want to use subpackages based on the
 table schema and catalog.  We also want String columns trimmed.</p>
 <pre>
 &lt;javaModelGenerator targetPackage="test.model"

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ import org.xml.sax.InputSource;
  * after running through the XML merger.
  *
  * @author Jeff Butler
- *
  */
 class XmlFileMergerTest {
 
@@ -176,18 +175,15 @@ class XmlFileMergerTest {
 
         commentGenerator.addComment(answer);
 
-        StringBuilder insertClause = new StringBuilder();
-        StringBuilder valuesClause = new StringBuilder();
+        String insertClause = "insert into " +
+                "myschema.mytable" +
+                " (id, description)";
 
-        insertClause.append("insert into ");
-        insertClause.append("myschema.mytable");
-        insertClause.append(" (id, description)");
+        String valuesClause = "values (#{id}, #{description})";
 
-        valuesClause.append("values (#{id}, #{description})");
+        answer.addElement(new TextElement(insertClause));
 
-        answer.addElement(new TextElement(insertClause.toString()));
-
-        answer.addElement(new TextElement(valuesClause.toString()));
+        answer.addElement(new TextElement(valuesClause));
 
         parentElement.addElement(answer);
     }

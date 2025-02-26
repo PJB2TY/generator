@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
 /**
  * This plugin demonstrates adding methods to the example class to enable
- * case-insensitive LIKE searches. It shows hows to construct new methods and
+ * case-insensitive LIKE searches. It shows how to construct new methods and
  * add them to an existing class.
  *
  * <p>This plugin only adds methods for String fields mapped to a JDBC character

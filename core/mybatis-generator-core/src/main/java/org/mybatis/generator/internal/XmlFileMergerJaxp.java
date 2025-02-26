@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -51,12 +51,13 @@ import org.xml.sax.SAXException;
  * @author Jeff Butler
  */
 public class XmlFileMergerJaxp {
-    private XmlFileMergerJaxp() {}
+    private XmlFileMergerJaxp() {
+    }
 
     private static class NullEntityResolver implements EntityResolver {
         /**
          * returns an empty reader. This is done so that the parser doesn't
-         * attempt to read a DTD. We don't need that support for the merge and
+         * attempt to read a DTD. We don't need that support for the merge, and
          * it can cause problems on systems that aren't Internet connected.
          */
         @Override
@@ -185,11 +186,8 @@ public class XmlFileMergerJaxp {
     private static boolean isOldFormatNode(Node node) {
         Element element = (Element) node;
         String id = element.getAttribute("id"); //$NON-NLS-1$
-        if (id != null) {
-            return MergeConstants.idStartsWithPrefix(id);
-        }
+        return MergeConstants.idStartsWithPrefix(id);
 
-        return false;
     }
 
     private static boolean isNewFormatNode(Node node) {
@@ -215,7 +213,7 @@ public class XmlFileMergerJaxp {
 
         if (node != null && node.getNodeType() == Node.TEXT_NODE) {
             Text tn = (Text) node;
-            if (tn.getData().trim().length() == 0) {
+            if (tn.getData().trim().isEmpty()) {
                 rc = true;
             }
         }

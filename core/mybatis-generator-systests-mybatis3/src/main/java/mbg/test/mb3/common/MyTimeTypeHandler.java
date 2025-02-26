@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -22,14 +22,13 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Calendar;
 
-import mbg.test.common.MyTime;
-
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 
+import mbg.test.common.MyTime;
+
 /**
  * @author Jeff Butler
- *
  */
 public class MyTimeTypeHandler implements TypeHandler<MyTime> {
 

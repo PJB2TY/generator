@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class StringUtility {
     }
 
     public static boolean stringHasValue(String s) {
-        return s != null && s.length() > 0;
+        return s != null && !s.isEmpty();
     }
 
     public static String composeFullyQualifiedTableName(String catalog,
@@ -45,7 +45,7 @@ public class StringUtility {
             sb.append(schema);
             sb.append(separator);
         } else {
-            if (sb.length() > 0) {
+            if (!sb.isEmpty()) {
                 sb.append(separator);
             }
         }
@@ -104,10 +104,12 @@ public class StringUtility {
     }
 
     /**
-     * Given an input string, tokenize on the commas and trim all token.
-     * Returns an empty set if the input string is null.
+     * Given an input string, tokenize on the commas and trim all token. Returns an empty set if the input string is
+     * null.
      *
-     * @param in strong to tokenize.
+     * @param in
+     *            strong to tokenize.
+     *
      * @return Set of tokens
      */
     public static Set<String> tokenize(String in) {
@@ -116,7 +118,7 @@ public class StringUtility {
             StringTokenizer st = new StringTokenizer(in, ","); //$NON-NLS-1$
             while (st.hasMoreTokens()) {
                 String s = st.nextToken().trim();
-                if (s.length() > 0) {
+                if (!s.isEmpty()) {
                     answer.add(s);
                 }
             }

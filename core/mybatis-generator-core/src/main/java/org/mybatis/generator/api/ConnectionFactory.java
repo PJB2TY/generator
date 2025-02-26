@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ public interface ConnectionFactory {
      * The generator will close the connection.
      *
      * @return the connection
-     * @throws SQLException if there is some error obtaining the connection
+     *
+     * @throws SQLException
+     *             if there is some error obtaining the connection
      */
     Connection getConnection() throws SQLException;
 

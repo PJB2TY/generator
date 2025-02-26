@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import mbg.domtest.CompilationUnitGenerator;
  * in code generation when the type is not explicitly imported.
  *
  */
-//@IgnoreDomTest("Ignore until changes for issue #63 are committed")
+// @IgnoreDomTest("Ignore until changes for issue #63 are committed")
 public class Test1Generator implements CompilationUnitGenerator {
 
     private static final String BASE_PACKAGE = "mbg.domtest.generators.fieldtype1.output";

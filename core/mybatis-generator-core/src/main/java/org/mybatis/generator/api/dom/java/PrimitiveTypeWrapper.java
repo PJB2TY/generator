@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
  *    limitations under the License.
  */
 package org.mybatis.generator.api.dom.java;
+
+import java.util.Objects;
 
 public class PrimitiveTypeWrapper extends FullyQualifiedJavaType {
     private static PrimitiveTypeWrapper booleanInstance;
@@ -52,89 +54,66 @@ public class PrimitiveTypeWrapper extends FullyQualifiedJavaType {
             return true;
         }
 
-        if (!(obj instanceof PrimitiveTypeWrapper)) {
+        if (!(obj instanceof PrimitiveTypeWrapper other)) {
             return false;
         }
-
-        PrimitiveTypeWrapper other = (PrimitiveTypeWrapper) obj;
 
         return getFullyQualifiedName().equals(other.getFullyQualifiedName());
     }
 
-    @Override
-    public int hashCode() {
-        return getFullyQualifiedName().hashCode();
-    }
-
     public static PrimitiveTypeWrapper getBooleanInstance() {
-        if (booleanInstance == null) {
-            booleanInstance = new PrimitiveTypeWrapper("java.lang.Boolean", //$NON-NLS-1$
-                    "booleanValue()"); //$NON-NLS-1$
-        }
-
+        booleanInstance = Objects.requireNonNullElseGet(booleanInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Boolean", //$NON-NLS-1$
+                    "booleanValue()")); //$NON-NLS-1$
         return booleanInstance;
     }
 
     public static PrimitiveTypeWrapper getByteInstance() {
-        if (byteInstance == null) {
-            byteInstance = new PrimitiveTypeWrapper("java.lang.Byte", //$NON-NLS-1$
-                    "byteValue()"); //$NON-NLS-1$
-        }
-
+        byteInstance = Objects.requireNonNullElseGet(byteInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Byte", //$NON-NLS-1$
+                    "byteValue()")); //$NON-NLS-1$
         return byteInstance;
     }
 
     public static PrimitiveTypeWrapper getCharacterInstance() {
-        if (characterInstance == null) {
-            characterInstance = new PrimitiveTypeWrapper("java.lang.Character", //$NON-NLS-1$
-                    "charValue()"); //$NON-NLS-1$
-        }
-
+        characterInstance = Objects.requireNonNullElseGet(characterInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Character", //$NON-NLS-1$
+                    "charValue()")); //$NON-NLS-1$
         return characterInstance;
     }
 
     public static PrimitiveTypeWrapper getDoubleInstance() {
-        if (doubleInstance == null) {
-            doubleInstance = new PrimitiveTypeWrapper("java.lang.Double", //$NON-NLS-1$
-                    "doubleValue()"); //$NON-NLS-1$
-        }
-
+        doubleInstance = Objects.requireNonNullElseGet(doubleInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Double", //$NON-NLS-1$
+                    "doubleValue()")); //$NON-NLS-1$
         return doubleInstance;
     }
 
     public static PrimitiveTypeWrapper getFloatInstance() {
-        if (floatInstance == null) {
-            floatInstance = new PrimitiveTypeWrapper("java.lang.Float", //$NON-NLS-1$
-                    "floatValue()"); //$NON-NLS-1$
-        }
-
+        floatInstance = Objects.requireNonNullElseGet(floatInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Float", //$NON-NLS-1$
+                    "floatValue()")); //$NON-NLS-1$
         return floatInstance;
     }
 
     public static PrimitiveTypeWrapper getIntegerInstance() {
-        if (integerInstance == null) {
-            integerInstance = new PrimitiveTypeWrapper("java.lang.Integer", //$NON-NLS-1$
-                    "intValue()"); //$NON-NLS-1$
-        }
-
+        integerInstance = Objects.requireNonNullElseGet(integerInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Integer", //$NON-NLS-1$
+                    "intValue()")); //$NON-NLS-1$
         return integerInstance;
     }
 
     public static PrimitiveTypeWrapper getLongInstance() {
-        if (longInstance == null) {
-            longInstance = new PrimitiveTypeWrapper("java.lang.Long", //$NON-NLS-1$
-                    "longValue()"); //$NON-NLS-1$
-        }
-
+        longInstance = Objects.requireNonNullElseGet(longInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Long", //$NON-NLS-1$
+                    "longValue()")); //$NON-NLS-1$
         return longInstance;
     }
 
     public static PrimitiveTypeWrapper getShortInstance() {
-        if (shortInstance == null) {
-            shortInstance = new PrimitiveTypeWrapper("java.lang.Short", //$NON-NLS-1$
-                    "shortValue()"); //$NON-NLS-1$
-        }
-
+        shortInstance = Objects.requireNonNullElseGet(shortInstance,
+                () -> new PrimitiveTypeWrapper("java.lang.Short", //$NON-NLS-1$
+                    "shortValue()")); //$NON-NLS-1$
         return shortInstance;
     }
 }

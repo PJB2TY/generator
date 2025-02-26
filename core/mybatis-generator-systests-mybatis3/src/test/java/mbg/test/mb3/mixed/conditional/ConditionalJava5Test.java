@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -57,15 +57,13 @@ import mbg.test.mb3.generated.mixed.conditional.model.PkonlyKey;
 
 /**
  * @author Jeff Butler
- *
  */
 public class ConditionalJava5Test extends AbstractMixedConditionalTest {
 
     @Test
     public void testFieldsOnlyInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsonlyMapper mapper = sqlSession.getMapper(FieldsonlyMapper.class);
             Fieldsonly record = new Fieldsonly();
             record.setDoublefield(11.22);
@@ -85,16 +83,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getDoublefield(), returnedRecord
                     .getDoublefield());
             assertEquals(record.getFloatfield(), returnedRecord.getFloatfield());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsOnlySelectByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsonlyMapper mapper = sqlSession.getMapper(FieldsonlyMapper.class);
             Fieldsonly record = new Fieldsonly();
             record.setDoublefield(11.22);
@@ -123,16 +118,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new FieldsonlyExample();
             answer = mapper.selectByExample(example);
             assertEquals(3, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsOnlySelectByExampleNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsonlyMapper mapper = sqlSession.getMapper(FieldsonlyMapper.class);
             Fieldsonly record = new Fieldsonly();
             record.setDoublefield(11.22);
@@ -157,16 +149,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
 
             List<Fieldsonly> answer = mapper.selectByExample(example);
             assertEquals(3, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsOnlyDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsonlyMapper mapper = sqlSession.getMapper(FieldsonlyMapper.class);
             Fieldsonly record = new Fieldsonly();
             record.setDoublefield(11.22);
@@ -195,16 +184,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new FieldsonlyExample();
             List<Fieldsonly> answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsOnlyCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsonlyMapper mapper = sqlSession.getMapper(FieldsonlyMapper.class);
             Fieldsonly record = new Fieldsonly();
             record.setDoublefield(11.22);
@@ -232,16 +218,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(3, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlyInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -255,16 +238,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             PkonlyKey returnedRecord = answer.get(0);
             assertEquals(key.getId(), returnedRecord.getId());
             assertEquals(key.getSeqNum(), returnedRecord.getSeqNum());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlyDeleteByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -288,16 +268,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
 
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlyDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -322,16 +299,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkonlyExample();
             List<PkonlyKey> answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlySelectByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -352,16 +326,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.createCriteria().andIdGreaterThan(4);
             List<PkonlyKey> answer = mapper.selectByExample(example);
             assertEquals(2, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlySelectByExampleNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -382,16 +353,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.createCriteria();
             List<PkonlyKey> answer = mapper.selectByExample(example);
             assertEquals(3, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKOnlyCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkonlyMapper mapper = sqlSession.getMapper(PkonlyMapper.class);
             PkonlyKey key = new PkonlyKey();
             key.setId(1);
@@ -416,16 +384,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(3, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setDatefield(new Date());
@@ -467,16 +432,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getTimefield()));
             assertEquals(record.getTimestampfield(), returnedRecord
                     .getTimestampfield());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsUpdateByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -502,16 +464,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getLastname(), record2.getLastname());
             assertEquals(record.getId1(), record2.getId1());
             assertEquals(record.getId2(), record2.getId2());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsUpdateByPrimaryKeySelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -556,16 +515,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getTimefield()));
             assertEquals(record.getTimestampfield(), returnedRecord
                     .getTimestampfield());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKfieldsDeleteByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -585,16 +541,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             PkfieldsExample example = new PkfieldsExample();
             List<Pkfields> answer = mapper.selectByExample(example);
             assertEquals(0, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -623,16 +576,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkfieldsExample();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -658,16 +608,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getLastname(), newRecord.getLastname());
             assertEquals(record.getId1(), newRecord.getId1());
             assertEquals(record.getId2(), newRecord.getId2());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -725,16 +672,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(2);
             assertEquals(2, returnedRecord.getId1().intValue());
             assertEquals(3, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleNotLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -792,16 +736,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(2);
             assertEquals(1, returnedRecord.getId1().intValue());
             assertEquals(3, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleComplexLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -858,16 +799,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(1);
             assertEquals(2, returnedRecord.getId1().intValue());
             assertEquals(3, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleIn() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -933,16 +871,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(3);
             assertEquals(2, returnedRecord.getId1().intValue());
             assertEquals(3, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleBetween() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -992,16 +927,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.setOrderByClause("ID1, ID2");
             List<Pkfields> answer = mapper.selectByExample(example);
             assertEquals(6, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -1051,16 +983,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.setOrderByClause("ID1, ID2");
             List<Pkfields> answer = mapper.selectByExample(example);
             assertEquals(6, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsSelectByExampleEscapedFields() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Fred");
@@ -1121,8 +1050,6 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.setOrderByClause("ID1, ID2");
             List<Pkfields> answer = mapper.selectByExample(example);
             assertEquals(2, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
@@ -1220,9 +1147,8 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
 
     @Test
     public void testPKFieldsCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsMapper mapper = sqlSession.getMapper(PkfieldsMapper.class);
             Pkfields record = new Pkfields();
             record.setFirstname("Jeff");
@@ -1246,16 +1172,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(2, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1273,16 +1196,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord
                     .getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsUpdateByPrimaryKeyWithBLOBs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1303,16 +1223,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId(), newRecord.getId());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), newRecord.getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsUpdateByPrimaryKeySelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1332,16 +1249,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getBlob1()));
             assertTrue(blobsAreEqual(newRecord.getBlob2(), returnedRecord
                     .getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsDeleteByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1359,16 +1273,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkblobsExample();
             answer = mapper.selectByExample(example);
             assertEquals(0, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1394,16 +1305,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkblobsExample();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsSelectByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1422,16 +1330,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId(), newRecord.getId());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), newRecord.getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsSelectByExampleWithoutBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1455,16 +1360,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(6, key.getId().intValue());
             assertNull(key.getBlob1());
             assertNull(key.getBlob2());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsSelectByExampleWithoutBlobsNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1483,16 +1385,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             List<Pkblobs> answer = mapper.selectByExample(example);
 
             assertEquals(2, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsSelectByExampleWithBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1516,16 +1415,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId(), newRecord.getId());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), newRecord.getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKBlobsCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkblobsMapper mapper = sqlSession.getMapper(PkblobsMapper.class);
             Pkblobs record = new Pkblobs();
             record.setId(3);
@@ -1547,16 +1443,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(2, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1577,16 +1470,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getLastname(), returnedRecord.getLastname());
             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord
                     .getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsUpdateByPrimaryKeyWithBLOBs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1616,16 +1506,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId2(), newRecord.getId2());
             assertTrue(blobsAreEqual(updateRecord.getBlob1(), newRecord
                     .getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsUpdateByPrimaryKeyWithoutBLOBs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1653,16 +1540,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId1(), newRecord.getId1());
             assertEquals(record.getId2(), newRecord.getId2());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsUpdateByPrimaryKeySelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1691,16 +1575,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getId2(), returnedRecord.getId2());
             assertTrue(blobsAreEqual(record.getBlob1(), returnedRecord
                     .getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsDeleteByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1731,16 +1612,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkfieldsblobsExample();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1770,16 +1648,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new PkfieldsblobsExample();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsSelectByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1810,16 +1685,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getFirstname(), newRecord.getFirstname());
             assertEquals(record.getLastname(), newRecord.getLastname());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsSelectByExampleWithoutBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1848,16 +1720,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getFirstname(), newRecord.getFirstname());
             assertEquals(record.getLastname(), newRecord.getLastname());
             assertNull(newRecord.getBlob1());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsSelectByExampleWithBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1887,16 +1756,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getFirstname(), newRecord.getFirstname());
             assertEquals(record.getLastname(), newRecord.getLastname());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsSelectByExampleWithBlobsNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1918,16 +1784,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.createCriteria();
             List<Pkfieldsblobs> answer = mapper.selectByExampleWithBLOBs(example);
             assertEquals(2, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testPKFieldsBlobsCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             PkfieldsblobsMapper mapper = sqlSession.getMapper(PkfieldsblobsMapper.class);
             Pkfieldsblobs record = new Pkfieldsblobs();
             record.setId1(3);
@@ -1953,16 +1816,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(2, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -1990,16 +1850,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), returnedRecord
                     .getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -2027,16 +1884,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example = new FieldsblobsExample();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsSelectByExampleWithoutBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -2061,16 +1915,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertFalse(newRecord instanceof FieldsblobsWithBLOBs);
             assertEquals(record.getFirstname(), newRecord.getFirstname());
             assertEquals(record.getLastname(), newRecord.getLastname());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsSelectByExampleWithBlobs() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -2096,16 +1947,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(record.getLastname(), newRecord.getLastname());
             assertTrue(blobsAreEqual(record.getBlob1(), newRecord.getBlob1()));
             assertTrue(blobsAreEqual(record.getBlob2(), newRecord.getBlob2()));
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsSelectByExampleWithBlobsNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -2125,16 +1973,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.createCriteria();
             List<FieldsblobsWithBLOBs> answer = mapper.selectByExampleWithBLOBs(example);
             assertEquals(2, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testFieldsBlobsCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             FieldsblobsMapper mapper = sqlSession.getMapper(FieldsblobsMapper.class);
             FieldsblobsWithBLOBs record = new FieldsblobsWithBLOBs();
             record.setFirstname("Jeff");
@@ -2158,16 +2003,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(2, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
 
@@ -2207,16 +2049,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getSecondFirstName());
             assertEquals(record.getThirdFirstName(), returnedRecord
                     .getThirdFirstName());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableInsertSelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
 
@@ -2254,16 +2093,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getSecondFirstName());
             assertEquals(record.getThirdFirstName(), returnedRecord
                     .getThirdFirstName());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableUpdateByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2307,16 +2143,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getSecondFirstName());
             assertEquals(record.getThirdFirstName(), returnedRecord
                     .getThirdFirstName());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableUpdateByPrimaryKeySelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2362,16 +2195,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getSecondFirstName());
             assertEquals(record.getThirdFirstName(), returnedRecord
                     .getThirdFirstName());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableDeleteByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2397,16 +2227,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             AwfulTableExample example = new AwfulTableExample();
             List<AwfulTable> answer = mapper.selectByExample(example);
             assertEquals(0, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableDeleteByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2450,16 +2277,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             answer = mapper.selectByExample(example);
             assertEquals(1, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByPrimaryKey() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2513,16 +2337,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
                     .getSecondFirstName());
             assertEquals(record.getThirdFirstName(), returnedRecord
                     .getThirdFirstName());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2622,16 +2443,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(2);
             assertEquals(111111, returnedRecord.getId1().intValue());
             assertEquals(222222, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleNotLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2731,16 +2549,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(2);
             assertEquals(111, returnedRecord.getId1().intValue());
             assertEquals(222, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleComplexLike() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2838,16 +2653,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(1);
             assertEquals(111111, returnedRecord.getId1().intValue());
             assertEquals(222222, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleIn() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -2949,16 +2761,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             returnedRecord = answer.get(1);
             assertEquals(11, returnedRecord.getId1().intValue());
             assertEquals(22, returnedRecord.getId2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleBetween() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -3048,16 +2857,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.createCriteria().andId1Between(1, 1000);
             List<AwfulTable> answer = mapper.selectByExample(example);
             assertEquals(3, answer.size());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableSelectByExampleNoCriteria() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -3161,16 +2967,13 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             assertEquals(11, returnedRecord.getId1().intValue());
             returnedRecord = answer.get(5);
             assertEquals(1, returnedRecord.getId1().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testAwfulTableCountByExample() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             AwfulTableMapper mapper = sqlSession.getMapper(AwfulTableMapper.class);
             AwfulTable record = new AwfulTable();
             record.seteMail("fred@fred.com");
@@ -3210,8 +3013,6 @@ public class ConditionalJava5Test extends AbstractMixedConditionalTest {
             example.clear();
             rows = mapper.countByExample(example);
             assertEquals(2, rows);
-        } finally {
-            sqlSession.close();
         }
     }
 }

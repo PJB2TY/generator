@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class BaseClass {
     }
 
     // these methods are final so that an error will be generated
-    // if the extended class tries to overwrite them.  This
+    // if the extended class tries to overwrite them. This
     // will break the build as the generator should
     // see a duplicate property.
     public final String getLastname() {

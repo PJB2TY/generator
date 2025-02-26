@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 package org.mybatis.generator.codegen.mybatis3;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 
@@ -28,7 +27,6 @@ import org.mybatis.generator.api.IntrospectedColumn;
  * <p>If a column is identity, it should not be referenced on an insert method.
  *
  * @author Jeff Butler
- *
  */
 public class ListUtilities {
 
@@ -37,12 +35,12 @@ public class ListUtilities {
     public static List<IntrospectedColumn> removeGeneratedAlwaysColumns(List<IntrospectedColumn> columns) {
         return columns.stream()
                 .filter(ic -> !ic.isGeneratedAlways())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static List<IntrospectedColumn> removeIdentityAndGeneratedAlwaysColumns(List<IntrospectedColumn> columns) {
         return columns.stream()
                 .filter(ic -> !ic.isGeneratedAlways() && !ic.isIdentity())
-                .collect(Collectors.toList());
+                .toList();
     }
 }

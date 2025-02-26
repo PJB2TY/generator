@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -49,11 +49,12 @@ public class MyBatis3FormattingUtilities {
     }
 
     /**
-     * The phrase to use in a select list. If there is a table alias, the value will be
-     * "alias.columnName as alias_columnName"
+     * The phrase to use in a select list. If there is a table alias, the value will be "alias.columnName as
+     * alias_columnName"
      *
      * @param introspectedColumn
      *            the introspected column
+     *
      * @return the proper phrase
      */
     public static String getSelectListPhrase(IntrospectedColumn introspectedColumn) {
@@ -102,11 +103,12 @@ public class MyBatis3FormattingUtilities {
      * selects in SqlMaps because the column is not escaped for MyBatis. If there is a table alias, the value will be
      * alias.columnName.
      *
-     * <p>This method is used in the Example classes and the returned value will be in a Java string.
-     * So we need to escape double quotes if they are the delimiters.
+     * <p>This method is used in the Example classes and the returned value will be in a Java string. So we need to
+     * escape double quotes if they are the delimiters.
      *
      * @param introspectedColumn
      *            the introspected column
+     *
      * @return the aliased column name
      */
     public static String getAliasedActualColumnName(IntrospectedColumn introspectedColumn) {
@@ -135,6 +137,7 @@ public class MyBatis3FormattingUtilities {
      *
      * @param introspectedColumn
      *            the introspected column
+     *
      * @return the renamed column name
      */
     public static String getRenamedColumnNameForResultMap(IntrospectedColumn introspectedColumn) {

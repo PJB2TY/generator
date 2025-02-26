@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -37,21 +37,18 @@ public class ParserErrorHandler implements ErrorHandler {
     @Override
     public void warning(SAXParseException exception) {
         warnings.add(getString("Warning.7", //$NON-NLS-1$
-                Integer.toString(exception.getLineNumber()), exception
-                        .getMessage()));
+                Integer.toString(exception.getLineNumber()), exception.getMessage()));
     }
 
     @Override
     public void error(SAXParseException exception) {
         errors.add(getString("RuntimeError.4", //$NON-NLS-1$
-                Integer.toString(exception.getLineNumber()), exception
-                        .getMessage()));
+                Integer.toString(exception.getLineNumber()), exception.getMessage()));
     }
 
     @Override
     public void fatalError(SAXParseException exception) {
         errors.add(getString("RuntimeError.4", //$NON-NLS-1$
-                Integer.toString(exception.getLineNumber()), exception
-                        .getMessage()));
+                Integer.toString(exception.getLineNumber()), exception.getMessage()));
     }
 }

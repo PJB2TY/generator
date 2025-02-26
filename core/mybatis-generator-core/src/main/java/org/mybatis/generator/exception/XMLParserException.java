@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,10 +15,12 @@
  */
 package org.mybatis.generator.exception;
 
+import java.io.Serial;
 import java.util.List;
 
 public class XMLParserException extends MultiMessageException {
 
+    @Serial
     private static final long serialVersionUID = 3481108770555387812L;
 
     public XMLParserException(List<String> errors) {

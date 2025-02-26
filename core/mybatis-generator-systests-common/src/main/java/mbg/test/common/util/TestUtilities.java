@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ import java.util.Random;
 
 public class TestUtilities {
 
-    private static DateFormat dateOnlyFormat = SimpleDateFormat.getDateInstance();
-    private static DateFormat timeOnlyFormat = SimpleDateFormat.getTimeInstance();
+    private static final DateFormat dateOnlyFormat = SimpleDateFormat.getDateInstance();
+    private static final DateFormat timeOnlyFormat = SimpleDateFormat.getTimeInstance();
 
     public static byte[] generateRandomBlob() {
         Random random = new Random();
@@ -46,7 +46,7 @@ public class TestUtilities {
         }
 
         if (date2 == null) {
-            return date1 == null;
+            return false;
         }
 
         return dateOnlyFormat.format(date1).equals(dateOnlyFormat.format(date2));
@@ -58,7 +58,7 @@ public class TestUtilities {
         }
 
         if (date2 == null) {
-            return date1 == null;
+            return false;
         }
 
         return timeOnlyFormat.format(date1).equals(timeOnlyFormat.format(date2));

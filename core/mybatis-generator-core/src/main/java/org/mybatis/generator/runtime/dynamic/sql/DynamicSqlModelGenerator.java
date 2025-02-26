@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -42,7 +42,6 @@ import org.mybatis.generator.codegen.RootClassInfo;
  * It does not support the immutable model, or constructor based attributes.
  *
  * @author Jeff Butler
- *
  */
 public class DynamicSqlModelGenerator extends AbstractJavaGenerator {
 
@@ -54,7 +53,6 @@ public class DynamicSqlModelGenerator extends AbstractJavaGenerator {
     public List<CompilationUnit> getCompilationUnits() {
         FullyQualifiedTable table = introspectedTable.getFullyQualifiedTable();
         progressCallback.startTask(getString("Progress.8", table.toString())); //$NON-NLS-1$
-        Plugin plugins = context.getPlugins();
         CommentGenerator commentGenerator = context.getCommentGenerator();
 
         FullyQualifiedJavaType type = new FullyQualifiedJavaType(
@@ -81,6 +79,7 @@ public class DynamicSqlModelGenerator extends AbstractJavaGenerator {
             }
         }
 
+        Plugin plugins = context.getPlugins();
         String rootClass = getRootClass();
         for (IntrospectedColumn introspectedColumn : introspectedColumns) {
             if (RootClassInfo.getInstance(rootClass, warnings)
@@ -90,7 +89,6 @@ public class DynamicSqlModelGenerator extends AbstractJavaGenerator {
 
             Field field = getJavaBeansFieldWithGeneratedAnnotation(introspectedColumn, context, introspectedTable,
                     topLevelClass);
-
             if (plugins.modelFieldGenerated(field, topLevelClass,
                     introspectedColumn, introspectedTable,
                     Plugin.ModelClassType.BASE_RECORD)) {

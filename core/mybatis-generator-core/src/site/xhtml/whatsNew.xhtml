@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2006-2023 the original author or authors.
+       Copyright 2006-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -25,7 +25,28 @@
 </head>
 <body>
 <h1>What's New in MyBatis Generator</h1>
+<h2>Version 1.4.3</h2>
+<p>
+  This is a relatively minor release.
+  In this release we have updated the minimum Java version to 17.
+  See the GitHub page for milestone 1.4.3 for details other changes in this release:
+  <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.4.3">Milestone 1.4.3</a>.
+</p>
+
+<h3>Enhancements/Fixes</h3>
+<ul>
+  <li>Java 17 is now the minimum supported Java version</li>
+  <li>Added several missing modifiers to the Kotlin DSL</li>
+  <li>Fixed a rendering bug when Java types have wildcard bounds</li>
+  <li>Added a missing plugin method for the Dynamic SQL runtime</li>
+</ul>
+
 <h2>Version 1.4.2</h2>
+<p>This is a small maintenance release. The most visible change is the switch to the "jakarta" namespace
+  and away from "javax". See the GitHub page for milestone 1.4.2 for details other changes in this
+  release:
+  <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.4.2">Milestone 1.4.2</a>.
+</p>
 
 <h3>Enhancements</h3>
 <ul>
@@ -33,7 +54,7 @@
     recommended for JDK 9+. If you prefer to use the "javax" annotations, there is a new property on the
     &lt;commentGenerator&gt; element that will override this behavior.
   </li>
-  <li>The Maven plugin now includes an integration with Eclipse Maven support. If you import a Maven project with the 
+  <li>The Maven plugin now includes an integration with Eclipse Maven support. If you import a Maven project with the
     generator configured into an Eclipse workspace, the code generator will run automatically.
   </li>
   <li>Added an "info" logging level to the log abstraction. Also removed the broken Maven logging implementation.
@@ -175,7 +196,7 @@ changes will be required:</p>
   <li>Move to Java 8</li>
   <li>Remove support for iBatis2</li>
   <li>General code cleanup</li>
-  <li>Several minor enhancements and bug fixes. See the GitHub page for milestone 1.4.0 for details. 
+  <li>Several minor enhancements and bug fixes. See the GitHub page for milestone 1.4.0 for details.
       <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.4.0">Milestone 1.4.0</a></li>
 </ul>
 
@@ -183,7 +204,7 @@ changes will be required:</p>
 <p>MyBatis generator supports Kotlin! There is a new simple DOM for generating Kotlin. There is also a new runtime that will
 generate Kotlin code that uses the MyBatis Dynamic SQL library. It has functionality that matches the new Java runtime
 for MyBatis Dynamic SQL (see below) - but it uses a more idiomatic Kotlin style with receiver functions rather than the
-method chaining style of the Java runtime.   
+method chaining style of the Java runtime.
 </p>
 
 <p>To use the new runtime, set <code>targetRuntime=MyBatis3Kotlin</code> on a <code>&lt;context&gt;</code>.</p>
@@ -236,7 +257,7 @@ deprecated and will be removed in a future version</b> - so please switch to the
   <li>In the Java DOM, removed the default constructors for <code>Method</code> and <code>Field</code></li>
   <li>Removed several methods from <code>CompilationUnit</code> including <code>isJavaInterface</code>,
       <code>isJavaEnumeration</code>, <code>getSuperClass</code>, and <code>getSuperInterfaceTypes</code>.</li>
-  <li>In the XML DOM, element nodes no longer extend the abstract Element class which is removed.</li>   
+  <li>In the XML DOM, element nodes no longer extend the abstract Element class which is removed.</li>
   <li>Changed return types to Optionals in the DOM methods where appropriate.</li>
   <li>Removed the <code>getFormattedContent</code> method from all Java and XML DOM classes. These methods
       are replaced by a new set of renderer classes. Note that the new renderer classes will produce
@@ -258,19 +279,19 @@ deprecated and will be removed in a future version</b> - so please switch to the
 <h2>Version 1.3.7</h2>
 <p>This version contains several minor fixes and enhancements - mostly related to the MyBatis3DynamicSql runtime.</p>
 
-<p>Please reference the GitHub page for milestone 1.3.7 for details. 
+<p>Please reference the GitHub page for milestone 1.3.7 for details.
 <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.3.7">Milestone 1.3.7</a>
 </p>
 
 <h2>Version 1.3.6</h2>
 <h2>Major Enhancement</h2>
 <p>The major enhancement in this release is a new type of generated code.  The generator will now create code that
-is based on the <a href="http://www.mybatis.org/mybatis-dynamic-sql/docs/introduction.html">MyBatis Dynamic SQL</a> library.
+is based on the <a href="https://www.mybatis.org/mybatis-dynamic-sql/docs/introduction.html">MyBatis Dynamic SQL</a> library.
 From the first release of MyBatis Generator, the generator has created code that includes "by example" support, but that support
 has been limited and difficult to use.  The new style of generated code supports a more natural SQL-like syntax for WHERE clauses.
 Additionally, WHERE clauses can be created with any combination of ANDs and ORs.  This is a significant improvement to the generated
 code.  It comes at the cost of dependency on MyBatis Dynamic SQL, and loss of compatibility with previously generated code, but we
-think it will be worth the change.  One other benefit is that the generated code is significantly smaller and easier to understand.  
+think it will be worth the change.  One other benefit is that the generated code is significantly smaller and easier to understand.
 </p>
 <p>Don't worry - unless you enable this change, then generator will create code exactly as it has in the past.</p>
 <p>To enable the change, use the new "MyBatis3DynamicSQL" runtime on the
@@ -287,27 +308,27 @@ think it will be worth the change.  One other benefit is that the generated code
 
 <h3>Other Fixes/Enhancements</h3>
 <p>Please reference the GitHub page for milestone 1.3.6 for details on what else
-has changed in this release. 
+has changed in this release.
 <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.3.6+is%3Aclosed">Milestone 1.3.6</a>
 </p>
 
 <h2>Version 1.3.5</h2>
 <h3>Fixes/Enhancements</h3>
 <p>Please reference the GitHub page for milestone 1.3.5 for details on what
-has changed in this release. 
+has changed in this release.
 <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.3.5+is%3Aclosed">Milestone 1.3.5</a>
 </p>
 
 <h2>Version 1.3.4</h2>
 <h3>Announcements</h3>
 <p>In this release we have deprecated the popup menu item in the eclipse plugin for
-running MyBatis generator and it will be removed in the next release.  The replacement
+running MyBatis generator, and it will be removed in the next release.  The replacement
 is a new MyBatis generator launcher that has far more capabilities than the popup
 menu item.</p>
 
 <h3>Fixes/Enhancements</h3>
 <p>Please reference the GitHub page for milestone 1.3.4 for details on what
-has changed in this release. 
+has changed in this release.
 <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.3.4+is%3Aclosed">Milestone 1.3.4</a>
 </p>
 
@@ -318,7 +339,7 @@ has changed in this release.
 </ul>
 <h3>Fixes/Enhancements</h3>
 <p>Please reference the GitHub page for milestone 1.3.3 for details on what
-has changed in this release. 
+has changed in this release.
 <a target="_blank" href="https://github.com/mybatis/generator/issues?q=milestone%3A1.3.3+is%3Aclosed">Milestone 1.3.3</a>
 </p>
 
@@ -381,10 +402,10 @@ has changed in this release.
       <code>org.mybatis.generator.api.dom.java.Field</code> class
   </li>
   <li>Issue #375 - Added a new plugin - ToStringPlugin - that will generate a toString() method
-      in the model classes.  Thanks Alexei and Iwao!</li>
+      in the model classes.  Thanks, Alexei and Iwao!</li>
   <li>Issue #233 - added GWT capability to the Serializable plugin</li>
   <li>Issue #564 - support subpackages at the table level</li>
-  <li>Issue #590 - new plugin for &lt;cache&gt;.  Thanks Jason Bennett! </li>
+  <li>Issue #590 - new plugin for &lt;cache&gt;.  Thanks, Jason Bennett! </li>
 </ul>
 
 <h2>Version 1.3.1</h2>
@@ -538,12 +559,12 @@ has changed in this release.
   <li>Added logging statements for use in debug. See the
      <a href="reference/logging.html">Logging</a> page
       for more information.</li>
-  <li>Added new example plugin to demonstrate adding case insensitive LIKE
+  <li>Added new example plugin to demonstrate adding case-insensitive LIKE
       support to generated Example classes.  See the
      <a href="configreference/ibatorPlugin.html">&lt;ibatorPlugin&gt;</a> page
       for more information.</li>
   <li>Added "delimitAllColumns" attribute to table configurations.  This supports databases
-      like PosgreSQL that are case sensitive for identifiers. See the
+      like PosgreSQL that are case-sensitive for identifiers. See the
      <a href="configreference/table.html">&lt;table&gt;</a> page
       for more information.</li>
   <li>Added a page explaining how to deal with case sensitivity in PostgreSQL.  See the
@@ -651,7 +672,7 @@ details the changes, and has methods of resolving the differences.</p>
       using an earlier version of iBATIS - upgrade!  If you are not able to upgrade,
       then you must continue to use Abator.</li>
   <li>The classloading strategy in Ibator is changed from Abator.  In all cases, we now recommend
-      specifying the classpath external to Ibator and we further recommend that you do not use
+      specifying the classpath external to Ibator, and we further recommend that you do not use
       the <code>&lt;classPathEntry&gt;</code> element.  You may specify classpath entries
       if you feel you must, but those entries will only be used when loading JDBC drivers
       of Java model root classes.  If you write a custom extension to Ibator, or a plugin,
@@ -802,7 +823,7 @@ sets encapsulates all the function needed to generate dynamic queries.</p>
 <dl>
   <dt>Legacy</dt>
   <dd>This generator set generates code that is the same as previous versions of
-      Abator.  There are some limitations with this generator set and we strongly
+      Abator.  There are some limitations with this generator set, and we strongly
       recommend that you choose one of the other sets.  However, this set remains
       the default for now.  <b>This generator set will likely be removed in a future
       version of Abator.</b></dd>
@@ -857,7 +878,7 @@ as follows:</p>
 <p>Model types can be specified as a default for an entire context, and you may
 override the default for each table in a context.  See the
 <a href="configreference/abatorContext.html">&lt;abatorContext&gt;</a> reference page for
-more information about setting the context default..
+more information about setting the context default.
 See the <a href="configreference/table.html">&lt;table&gt;</a>
 reference page for more information about setting a model type for specific tables.
 </p>

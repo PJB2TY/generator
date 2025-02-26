@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -30,22 +30,11 @@ public class AntProgressCallback implements ProgressCallback {
 
     private final boolean verbose;
 
-    /**
-     * Instantiates a new ant progress callback.
-     *
-     * @param task
-     *            the task
-     * @param verbose
-     *            the verbose
-     */
     public AntProgressCallback(Task task, boolean verbose) {
         this.task = task;
         this.verbose = verbose;
     }
 
-    /* (non-Javadoc)
-     * @see org.mybatis.generator.internal.NullProgressCallback#startTask(java.lang.String)
-     */
     @Override
     public void startTask(String subTaskName) {
         if (verbose) {

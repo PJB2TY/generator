@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -22,8 +22,7 @@ import java.util.ResourceBundle;
 public class Messages {
     private static final String BUNDLE_NAME = "org.mybatis.generator.internal.util.messages.messages"; //$NON-NLS-1$
 
-    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
-            .getBundle(BUNDLE_NAME);
+    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
 
     private Messages() {
     }
@@ -52,8 +51,7 @@ public class Messages {
         }
     }
 
-    public static String getString(String key, String parm1, String parm2,
-            String parm3) {
+    public static String getString(String key, String parm1, String parm2, String parm3) {
         try {
             return MessageFormat.format(RESOURCE_BUNDLE.getString(key), parm1, parm2, parm3);
         } catch (MissingResourceException e) {

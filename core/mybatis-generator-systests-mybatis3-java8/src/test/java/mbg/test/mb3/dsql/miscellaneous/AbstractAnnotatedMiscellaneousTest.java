@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package mbg.test.mb3.dsql.miscellaneous;
 
 import static mbg.test.common.util.TestUtilities.createDatabase;
 
-import mbg.test.mb3.generated.dsql.miscellaneous.mapper.EnumordinaltestMapper;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
@@ -26,6 +25,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.junit.jupiter.api.BeforeEach;
 
+import mbg.test.mb3.generated.dsql.miscellaneous.mapper.EnumordinaltestMapper;
 import mbg.test.mb3.generated.dsql.miscellaneous.mapper.EnumtestMapper;
 import mbg.test.mb3.generated.dsql.miscellaneous.mapper.GeneratedalwaystestMapper;
 import mbg.test.mb3.generated.dsql.miscellaneous.mapper.GeneratedalwaystestnoupdatesMapper;

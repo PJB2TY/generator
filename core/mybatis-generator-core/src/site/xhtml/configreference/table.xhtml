@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2006-2022 the original author or authors.
+       Copyright 2006-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -189,7 +189,7 @@ identifiers in upper case.  In this instance, you should specify the attribute
   <tr>
     <td valign="top">enableDeleteByPrimaryKey</td>
     <td><i>This attribute is ignored is the target runtime is "MyBatis3DynamicSql" or "MyBatis3Kotlin"</i><br/>
-        Signifies whether an delete by primary key statement should be generated.
+        Signifies whether a delete by primary key statement should be generated.
         Regardless of this setting, the statement will not be generated if the
         table does not have a primary key.
         <p>The default is <i>true</i>.</p></td>
@@ -297,7 +297,7 @@ identifiers in upper case.  In this instance, you should specify the attribute
         SQL.  This is an alternative to coding a <code>&lt;columnOverride&gt;</code>
         for every column
         specifying that the column should be delimited.  This is useful for databases
-        like PostgreSQL that are case sensitive with identifiers.
+        like PostgreSQL that are case-sensitive with identifiers.
         <p>The delimiter characters are specified on the
         <a href="context.html">&lt;context&gt;</a> element.</p>
         <p>The default is <i>false</i>.</p></td>
@@ -461,12 +461,12 @@ specified with the <a href="property.html">&lt;property&gt;</a> child element:</
       the white space from character fields returned from the database.
       This can be useful if your database stores data in CHAR fields rather than
       VARCHAR fields.  When true, MyBatis Generator will insert code to trim character fields.
-      Can be overridden with the <code>trimStrings</code> property in a &lt;columnOverride&gt; 
-      configuration. This property value overrides the property if specified at the 
+      Can be overridden with the <code>trimStrings</code> property in a &lt;columnOverride&gt;
+      configuration. This property value overrides the property if specified at the
       <a href="javaModelGenerator.html">&lt;javaModelGenerator&gt;</a> level
-      and can be overridden for fields/columns using the property in a 
+      and can be overridden for fields/columns using the property in a
       <a href="columnOverride.html">&lt;columnOverride&gt;</a> element.</p>
-      <p><i>The default value is inherited from the 
+      <p><i>The default value is inherited from the
       <a href="javaModelGenerator.html">&lt;javaModelGenerator&gt;</a>, otherwise false.</i></p></td>
   </tr>
   <tr>

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -301,8 +301,6 @@ public class ExampleGenerator extends AbstractJavaGenerator {
     }
 
     private InnerClass getGeneratedCriteriaInnerClass(TopLevelClass topLevelClass) {
-        Field field;
-
         InnerClass answer = new InnerClass(FullyQualifiedJavaType.getGeneratedCriteriaInstance());
 
         answer.setVisibility(JavaVisibility.PROTECTED);
@@ -355,7 +353,7 @@ public class ExampleGenerator extends AbstractJavaGenerator {
 
         // now generate the getAllCriteria method
         if (criteriaLists.size() > 1) {
-            field = new Field("allCriteria", //$NON-NLS-1$
+            Field field = new Field("allCriteria", //$NON-NLS-1$
                     new FullyQualifiedJavaType("List<Criterion>")); //$NON-NLS-1$
             field.setVisibility(JavaVisibility.PROTECTED);
             answer.addField(field);
@@ -387,7 +385,7 @@ public class ExampleGenerator extends AbstractJavaGenerator {
 
         FullyQualifiedJavaType listOfCriterion =
                 new FullyQualifiedJavaType("java.util.List<Criterion>"); //$NON-NLS-1$
-        field = new Field("criteria", listOfCriterion); //$NON-NLS-1$
+        Field field = new Field("criteria", listOfCriterion); //$NON-NLS-1$
         field.setVisibility(JavaVisibility.PROTECTED);
         answer.addField(field);
 

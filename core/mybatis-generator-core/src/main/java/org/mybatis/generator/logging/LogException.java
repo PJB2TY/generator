@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,8 +15,11 @@
  */
 package org.mybatis.generator.logging;
 
+import java.io.Serial;
+
 public class LogException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 7522435242386492002L;
 
     public LogException() {

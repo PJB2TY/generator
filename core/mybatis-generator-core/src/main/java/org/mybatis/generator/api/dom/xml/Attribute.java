@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -17,22 +17,9 @@ package org.mybatis.generator.api.dom.xml;
 
 import java.util.Objects;
 
-public class Attribute {
-
-    private final String name;
-
-    private final String value;
-
+public record Attribute(String name, String value) {
     public Attribute(String name, String value) {
         this.name = Objects.requireNonNull(name);
         this.value = Objects.requireNonNull(value);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getValue() {
-        return value;
     }
 }

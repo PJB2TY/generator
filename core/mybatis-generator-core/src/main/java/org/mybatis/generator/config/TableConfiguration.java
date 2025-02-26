@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -172,11 +172,9 @@ public class TableConfiguration extends PropertyHolder {
             return true;
         }
 
-        if (!(obj instanceof TableConfiguration)) {
+        if (!(obj instanceof TableConfiguration other)) {
             return false;
         }
-
-        TableConfiguration other = (TableConfiguration) obj;
 
         return Objects.equals(this.catalog, other.catalog)
                 && Objects.equals(this.schema, other.schema)

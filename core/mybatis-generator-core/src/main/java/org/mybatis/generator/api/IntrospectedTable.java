@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.mybatis.generator.config.Context;
@@ -50,7 +49,6 @@ import org.mybatis.generator.internal.rules.Rules;
  * the actual code generation methods left unimplemented.
  *
  * @author Jeff Butler
- *
  */
 public abstract class IntrospectedTable {
 
@@ -222,7 +220,7 @@ public abstract class IntrospectedTable {
     public List<IntrospectedColumn> getAllColumns() {
         return Stream.of(primaryKeyColumns.stream(), baseColumns.stream(), blobColumns.stream())
                 .flatMap(Function.identity())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -233,7 +231,7 @@ public abstract class IntrospectedTable {
     public List<IntrospectedColumn> getNonBLOBColumns() {
         return Stream.of(primaryKeyColumns.stream(), baseColumns.stream())
                 .flatMap(Function.identity())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public int getNonBLOBColumnCount() {
@@ -243,7 +241,7 @@ public abstract class IntrospectedTable {
     public List<IntrospectedColumn> getNonPrimaryKeyColumns() {
         return Stream.of(baseColumns.stream(), blobColumns.stream())
                 .flatMap(Function.identity())
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<IntrospectedColumn> getBLOBColumns() {
@@ -919,7 +917,7 @@ public abstract class IntrospectedTable {
 
     /**
      * This method should return the number of progress messages that will be
-     * send during the generation phase.
+     * sent during the generation phase.
      *
      * @return the number of progress messages
      */

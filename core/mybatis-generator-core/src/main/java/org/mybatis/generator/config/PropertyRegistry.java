@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ package org.mybatis.generator.config;
  * properties, and helps to avoid spelling errors.
  *
  * @author Jeff Butler
- *
  */
 public class PropertyRegistry {
-    private PropertyRegistry() {}
+    private PropertyRegistry() {
+    }
 
     public static final String ANY_ENABLE_SUB_PACKAGES = "enableSubPackages"; //$NON-NLS-1$
 

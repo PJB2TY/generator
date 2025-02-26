@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -38,7 +38,8 @@ import org.mybatis.generator.api.dom.java.TypeParameter;
 import org.mybatis.generator.internal.util.CustomCollectors;
 
 public class RenderingUtilities {
-    private RenderingUtilities() {}
+    private RenderingUtilities() {
+    }
 
     public static final String JAVA_INDENT = "    "; //$NON-NLS-1$
     private static final TypeParameterRenderer typeParameterRenderer = new TypeParameterRenderer();
@@ -59,7 +60,7 @@ public class RenderingUtilities {
     public static List<String> renderFields(List<Field> fields, CompilationUnit compilationUnit) {
         return fields.stream()
                 .flatMap(f -> renderField(f, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private static Stream<String> renderField(Field field, CompilationUnit compilationUnit) {
@@ -70,7 +71,7 @@ public class RenderingUtilities {
     public static List<String> renderInitializationBlocks(List<InitializationBlock> initializationBlocks) {
         return initializationBlocks.stream()
                 .flatMap(RenderingUtilities::renderInitializationBlock)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private static Stream<String> renderInitializationBlock(InitializationBlock initializationBlock) {
@@ -81,13 +82,13 @@ public class RenderingUtilities {
     public static List<String> renderClassOrEnumMethods(List<Method> methods, CompilationUnit compilationUnit) {
         return methods.stream()
                 .flatMap(m -> renderMethod(m, false, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static List<String> renderInterfaceMethods(List<Method> methods, CompilationUnit compilationUnit) {
         return methods.stream()
                 .flatMap(m -> renderMethod(m, true, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private static Stream<String> renderMethod(Method method, boolean inInterface, CompilationUnit compilationUnit) {
@@ -103,7 +104,7 @@ public class RenderingUtilities {
     public static List<String> renderInnerClasses(List<InnerClass> innerClasses, CompilationUnit compilationUnit) {
         return innerClasses.stream()
                 .flatMap(ic -> renderInnerClass(ic, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static List<String> renderInnerClassNoIndent(InnerClass innerClass, CompilationUnit compilationUnit) {
@@ -119,7 +120,7 @@ public class RenderingUtilities {
             CompilationUnit compilationUnit) {
         return innerInterfaces.stream()
                 .flatMap(ii -> renderInnerInterface(ii, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static List<String> renderInnerInterfaceNoIndent(InnerInterface innerInterface,
@@ -135,7 +136,7 @@ public class RenderingUtilities {
     public static List<String> renderInnerEnums(List<InnerEnum> innerEnums, CompilationUnit compilationUnit) {
         return innerEnums.stream()
                 .flatMap(ie -> renderInnerEnum(ie, compilationUnit))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static List<String> renderInnerEnumNoIndent(InnerEnum innerEnum, CompilationUnit compilationUnit) {
@@ -175,7 +176,7 @@ public class RenderingUtilities {
             return Collections.emptyList();
         }
 
-        return addEmptyLine(imports.stream()).collect(Collectors.toList());
+        return addEmptyLine(imports.stream()).toList();
     }
 
     private static Set<String> renderImports(Set<FullyQualifiedJavaType> imports) {

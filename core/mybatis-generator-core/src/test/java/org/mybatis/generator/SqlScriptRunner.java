@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -27,8 +27,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * This class is used to execute an SQL script before a code generation
- * run.
+ * This class is used to execute an SQL script before a code generation run.
  *
  * @author Jeff Butler
  */
@@ -128,6 +127,6 @@ public class SqlScriptRunner {
 
         String s = sb.toString().trim();
 
-        return s.length() > 0 ? s : null;
+        return s.isEmpty() ? null : s;
     }
 }

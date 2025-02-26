@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -47,6 +47,7 @@ public abstract class AbstractXmlElementGenerator extends AbstractGenerator {
      *            the column related to the select key statement
      * @param generatedKey
      *            the generated key for the current table
+     *
      * @return the selectKey element
      */
     protected XmlElement getSelectKey(IntrospectedColumn introspectedColumn,
@@ -120,7 +121,7 @@ public abstract class AbstractXmlElementGenerator extends AbstractGenerator {
             }
         }
 
-        if (sb.length() > 0) {
+        if (!sb.isEmpty()) {
             answer.add(new TextElement(sb.toString()));
         }
 

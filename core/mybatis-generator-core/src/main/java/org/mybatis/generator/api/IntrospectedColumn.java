@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package org.mybatis.generator.api;
 
 import java.sql.Types;
+import java.util.Objects;
 import java.util.Properties;
 
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
@@ -33,7 +34,7 @@ public class IntrospectedColumn {
     protected int jdbcType;
 
     /**
-     * The platform specific data type name as reported from DatabaseMetadata.getColumns()
+     * The platform specific data type name as reported from DatabaseMetadata.getColumns().
      */
     protected String actualTypeName;
 
@@ -230,11 +231,7 @@ public class IntrospectedColumn {
     }
 
     public String getJdbcTypeName() {
-        if (jdbcTypeName == null) {
-            return "OTHER"; //$NON-NLS-1$
-        }
-
-        return jdbcTypeName;
+        return Objects.requireNonNullElse(jdbcTypeName, "OTHER");//$NON-NLS-1$
     }
 
     public void setJdbcTypeName(String jdbcTypeName) {

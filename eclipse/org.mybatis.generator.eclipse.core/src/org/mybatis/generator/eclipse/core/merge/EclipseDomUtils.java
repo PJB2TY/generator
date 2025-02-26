@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -66,9 +66,9 @@ public class EclipseDomUtils {
     }
     
     public static CompilationUnit getCompilationUnitFromSource(String javaSource) {
-        ASTParser astParser = ASTParser.newParser(AST.JLS16);
+        ASTParser astParser = ASTParser.newParser(AST.JLS18);
         Map<String, String> options = JavaCore.getDefaultOptions();
-        JavaCore.setComplianceOptions(JavaCore.VERSION_16, options);
+        JavaCore.setComplianceOptions(JavaCore.VERSION_18, options);
         astParser.setCompilerOptions(options);
         astParser.setSource(javaSource.toCharArray());
         CompilationUnit cu = (CompilationUnit) astParser.createAST(null);

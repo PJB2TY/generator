@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,23 +15,7 @@
  */
 package org.mybatis.generator.api.dom.xml;
 
-public class PublicDocType implements DocType {
-    private final String dtdLocation;
-    private final String dtdName;
-
-    public PublicDocType(String dtdName, String dtdLocation) {
-        super();
-        this.dtdName = dtdName;
-        this.dtdLocation = dtdLocation;
-    }
-
-    public String getDtdLocation() {
-        return dtdLocation;
-    }
-
-    public String getDtdName() {
-        return dtdName;
-    }
+public record PublicDocType(String dtdName, String dtdLocation) implements DocType {
 
     @Override
     public <R> R accept(DocTypeVisitor<R> visitor) {

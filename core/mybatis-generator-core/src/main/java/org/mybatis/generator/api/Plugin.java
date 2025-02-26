@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -67,8 +67,8 @@ import org.mybatis.generator.config.Context;
  * implementations, these methods may not be called.
  *
  * @author Jeff Butler
- * @see PluginAdapter
  *
+ * @see PluginAdapter
  */
 public interface Plugin {
 
@@ -1316,7 +1316,7 @@ public interface Plugin {
 
     /**
      * This method is called when the SqlMap document has been generated. This
-     * method can be used to add additional XML elements the the generated
+     * method can be used to add additional XML elements to the generated
      * document.
      *
      * @param document
@@ -2033,6 +2033,32 @@ public interface Plugin {
     default boolean clientUpdateByPrimaryKeyMethodGenerated(KotlinFunction kotlinFunction, KotlinFile kotlinFile,
             IntrospectedTable introspectedTable) {
         return true;
+    }
+
+    /**
+     * The motivation for adding this method can be found in
+     * https://github.com/mybatis/generator/issues/1116
+     *
+     * <p>This method is called when the updateByPrimaryKey method
+     * has been generated in the dynamic SQL runtime client interface.
+     *
+     * @param method
+     *            the generated updateByPrimaryKey method
+     * @param interfaze
+     *            the partially implemented client interface. You can add
+     *            additional imported classes to the interface if
+     *            necessary.
+     * @param introspectedTable
+     *            The class containing information about the table as
+     *            introspected from the database
+     * @return true if the method should be generated, false if the generated
+     *         method should be ignored. In the case of multiple plugins, the
+     *         first plugin returning false will disable the calling of further
+     *         plugins.
+     */
+    default boolean clientUpdateByPrimaryKeyMethodGenerated(Method method,
+            Interface interfaze, IntrospectedTable introspectedTable) {
+        return clientUpdateByPrimaryKeyWithBLOBsMethodGenerated(method, interfaze, introspectedTable);
     }
 
     /**

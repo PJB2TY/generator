@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.mybatis.generator.api.CommentGenerator;
@@ -91,11 +92,7 @@ public class Context extends PropertyHolder {
     public Context(ModelType defaultModelType) {
         super();
 
-        if (defaultModelType == null) {
-            this.defaultModelType = ModelType.CONDITIONAL;
-        } else {
-            this.defaultModelType = defaultModelType;
-        }
+        this.defaultModelType = Objects.requireNonNullElse(defaultModelType, ModelType.CONDITIONAL);
 
         tableConfigurations = new ArrayList<>();
         pluginConfigurations = new ArrayList<>();
@@ -350,7 +347,7 @@ public class Context extends PropertyHolder {
 
     /**
      * Introspect tables based on the configuration specified in the
-     * constructor. This method is long running.
+     * constructor. This method is long-running.
      *
      * @param callback
      *            a progress callback if progress information is desired, or

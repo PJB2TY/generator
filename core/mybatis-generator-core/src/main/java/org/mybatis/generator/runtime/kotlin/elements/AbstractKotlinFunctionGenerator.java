@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -33,8 +33,7 @@ public abstract class AbstractKotlinFunctionGenerator {
         tableFieldName = builder.tableFieldName;
     }
 
-    protected void acceptParts(KotlinFile kotlinFile, KotlinFunction kotlinFunction,
-            KotlinFunctionParts functionParts) {
+    protected void acceptParts(KotlinFunction kotlinFunction, KotlinFunctionParts functionParts) {
         for (KotlinArg argument : functionParts.getArguments()) {
             kotlinFunction.addArgument(argument);
         }
@@ -44,7 +43,6 @@ public abstract class AbstractKotlinFunctionGenerator {
         }
 
         kotlinFunction.addCodeLines(functionParts.getCodeLines());
-        kotlinFile.addImports(functionParts.getImports());
     }
 
     protected void acceptParts(KotlinFunctionAndImports functionAndImports, KotlinFunctionParts functionParts) {

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -48,12 +48,12 @@ public class FullyQualifiedTable {
      *
      * @param introspectedCatalog
      *            the actual catalog of the table as returned from DatabaseMetaData. This value
-     *            should only be set if the user configured a catalog. Otherwise the
+     *            should only be set if the user configured a catalog. Otherwise, the
      *            DatabaseMetaData is reporting some database default that we don't want in the
      *            generated code.
      * @param introspectedSchema
      *            the actual schema of the table as returned from DatabaseMetaData. This value
-     *            should only be set if the user configured a schema. Otherwise the
+     *            should only be set if the user configured a schema. Otherwise, the
      *            DatabaseMetaData is reporting some database default that we don't want in the
      *            generated code.
      * @param introspectedTableName
@@ -147,7 +147,7 @@ public class FullyQualifiedTable {
                 localCatalog.append(introspectedCatalog);
             }
         }
-        if (localCatalog.length() > 0) {
+        if (!localCatalog.isEmpty()) {
             addDelimiters(localCatalog);
         }
 
@@ -159,7 +159,7 @@ public class FullyQualifiedTable {
                 localSchema.append(introspectedSchema);
             }
         }
-        if (localSchema.length() > 0) {
+        if (!localSchema.isEmpty()) {
             addDelimiters(localSchema);
         }
 
@@ -217,11 +217,9 @@ public class FullyQualifiedTable {
             return true;
         }
 
-        if (!(obj instanceof FullyQualifiedTable)) {
+        if (!(obj instanceof FullyQualifiedTable other)) {
             return false;
         }
-
-        FullyQualifiedTable other = (FullyQualifiedTable) obj;
 
         return Objects.equals(this.introspectedTableName, other.introspectedTableName)
                 && Objects.equals(this.introspectedCatalog, other.introspectedCatalog)

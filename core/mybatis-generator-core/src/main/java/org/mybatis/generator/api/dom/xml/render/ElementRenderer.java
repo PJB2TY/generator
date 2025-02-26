@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public class ElementRenderer implements ElementVisitor<Stream<String>> {
 
     @Override
     public Stream<String> visit(TextElement element) {
-        return Stream.of(element.getContent());
+        return Stream.of(element.content());
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ElementRenderer implements ElementVisitor<Stream<String>> {
 
     private String renderAttributes(XmlElement element) {
         return element.getAttributes().stream()
-                .sorted(Comparator.comparing(Attribute::getName))
+                .sorted(Comparator.comparing(Attribute::name))
                 .map(attributeRenderer::render)
                 .collect(CustomCollectors.joining(" ", " ", "")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
     }

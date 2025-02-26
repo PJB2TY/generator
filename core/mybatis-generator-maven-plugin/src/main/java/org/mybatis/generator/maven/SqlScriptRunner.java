@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2023 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -45,10 +45,10 @@ import org.mybatis.generator.internal.util.messages.Messages;
  */
 public class SqlScriptRunner {
     private String driver;
-    private String url;
-    private String userid;
+    private final String url;
+    private final String userid;
     private String password;
-    private String sourceFile;
+    private final String sourceFile;
     private Log log;
 
     public SqlScriptRunner(String sourceFile, String driver, String url,
@@ -173,7 +173,7 @@ public class SqlScriptRunner {
 
             if (line.endsWith(";")) { //$NON-NLS-1$
                 sb.append(' ');
-                sb.append(line.substring(0, line.length() - 1));
+                sb.append(line, 0, line.length() - 1);
                 break;
             } else {
                 sb.append(' ');
@@ -183,11 +183,11 @@ public class SqlScriptRunner {
 
         String s = sb.toString().trim();
 
-        if (s.length() > 0) {
+        if (!s.isEmpty()) {
             log.debug(Messages.getString("Progress.13", s)); //$NON-NLS-1$
         }
 
-        return s.length() > 0 ? s : null;
+        return s.isEmpty() ? null : s;
     }
 
     public void setLog(Log log) {

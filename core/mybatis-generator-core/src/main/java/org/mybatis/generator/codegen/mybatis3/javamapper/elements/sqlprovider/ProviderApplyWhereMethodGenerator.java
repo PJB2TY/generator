@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -65,9 +65,9 @@ public class ProviderApplyWhereMethodGenerator extends AbstractJavaProviderMetho
     protected static List<String> getMethodLines() {
         List<String> answer = new ArrayList<>();
 
-        InputStream is =
-                ProviderApplyWhereMethodGenerator.class.getResourceAsStream("ApplyWhereMethod.txt"); //$NON-NLS-1$
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)))) {
+        try (InputStream is =
+                ProviderApplyWhereMethodGenerator.class.getResourceAsStream("ApplyWhereMethod.txt")) { //$NON-NLS-1$
+            BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
             String line;
             boolean foundDelimiter = false;
             while ((line = br.readLine()) != null) {

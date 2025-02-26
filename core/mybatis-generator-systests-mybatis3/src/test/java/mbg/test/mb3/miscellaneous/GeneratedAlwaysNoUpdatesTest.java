@@ -1,5 +1,5 @@
 /*
- *    Copyright 2006-2022 the original author or authors.
+ *    Copyright 2006-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -30,9 +30,8 @@ public class GeneratedAlwaysNoUpdatesTest extends AbstractMiscellaneousTest {
 
     @Test
     public void testInsert() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             GeneratedalwaystestnoupdatesMapper mapper = sqlSession.getMapper(GeneratedalwaystestnoupdatesMapper.class);
 
             Generatedalwaystestnoupdates gaTest = new Generatedalwaystestnoupdates();
@@ -49,16 +48,13 @@ public class GeneratedAlwaysNoUpdatesTest extends AbstractMiscellaneousTest {
             assertEquals(1, returnedRecord.getId().intValue());
             assertEquals(2, returnedRecord.getIdPlus1().intValue());
             assertEquals(3, returnedRecord.getIdPlus2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
     @Test
     public void testInsertSelective() {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             GeneratedalwaystestnoupdatesMapper mapper = sqlSession.getMapper(GeneratedalwaystestnoupdatesMapper.class);
 
             Generatedalwaystestnoupdates gaTest = new Generatedalwaystestnoupdates();
@@ -73,8 +69,6 @@ public class GeneratedAlwaysNoUpdatesTest extends AbstractMiscellaneousTest {
             assertEquals(1, returnedRecord.getId().intValue());
             assertEquals(2, returnedRecord.getIdPlus1().intValue());
             assertEquals(3, returnedRecord.getIdPlus2().intValue());
-        } finally {
-            sqlSession.close();
         }
     }
 
